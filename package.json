@@ -1,0 +1,30 @@
+{
+  "name": "esquinadesampa",
+  "version": "1.0.0",
+  "description": "Projeto Integrador Esquina de Sampa",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andradejao/esquinadesampa.git"
+  },
+  "author": "João Vitor Andrade, Camila Yukari Jodai, Pedro Henrique dos Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andradejao/esquinadesampa/issues"
+  },
+  "homepage": "https://github.com/andradejao/esquinadesampa#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  }
+}
