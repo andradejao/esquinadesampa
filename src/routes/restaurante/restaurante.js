@@ -11,6 +11,16 @@ routerRestaurante.get("/listar", (req, res) => {
     })
 })
 
+routerRestaurante.get("/listar/:categoria", (req,res)=>{
+    data.query(`SELECT r.nomerestaurante, r.descricao, f.fotocapa FROM restaurante r 
+    INNER JOIN foto f ON r.idfoto = f.idfoto WHERE r.categoria = ?;`, (error,result)=>{
+        if(error){
+            return res.status(500).send({msg: "Erro ao carregar a seleção"})
+        }
+        res.status(200).send({msg: "Ok", payload: result})
+    })
+})
+
 routerRestaurante.post("/cadastrar", (req, res) => {
     data.query(`insert into restaurante set ?`, req.body, (error, result) => {
         if (error) {
