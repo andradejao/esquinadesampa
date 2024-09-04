@@ -53,3 +53,21 @@ footer {
     color: #F5F5DC;
     font-size: 1.2em;
 }
+
+.imgSobre {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.linkDecorationSobre {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: black;
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}
