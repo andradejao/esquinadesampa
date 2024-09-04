@@ -11,13 +11,25 @@ routerRestaurante.get("/listar", (req, res) => {
     })
 })
 
-routerRestaurante.get("/listar/:categoria", (req,res)=>{
-    data.query(`SELECT r.nomerestaurante, r.descricao, f.fotocapa FROM restaurante r 
-    INNER JOIN foto f ON r.idfoto = f.idfoto WHERE r.categoria = ?;`, (error,result)=>{
-        if(error){
-            return res.status(500).send({msg: "Erro ao carregar a seleção"})
+routerRestaurante.get("/listar/:categoria", (req, res) => {
+    data.query(`select r.idrestaurante, r.nomerestaurante, r.descricao, f.fotocapa from restaurante r 
+    inner join foto f on r.idfoto = f.idfoto 
+    where r.categoria = ? and r.situacao = "ativo";`, req.params.categoria, (error, result) => {
+        if (error) {
+            return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
         }
-        res.status(200).send({msg: "Ok", payload: result})
+        res.status(200).send({ msg: "Ok", payload: result })
+    })
+})
+
+routerRestaurante.get("/listardestaque/:", (req, res) => {
+    data.query(`SELECT r.nomerestaurante, r.descricao, f.fotocapa FROM restaurante r 
+    INNER JOIN foto f ON r.idfoto = f.idfoto 
+    WHERE r.categoria = ? AND r.situacao = "ativo";`, req.params.categoria, (error, result) => {
+        if (error) {
+            return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
+        }
+        res.status(200).send({ msg: "Ok", payload: result })
     })
 })
 
