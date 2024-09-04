@@ -14,7 +14,7 @@ routerRestaurante.get("/listar", (req, res) => {
 routerRestaurante.get("/listar/:categoria", (req, res) => {
     data.query(`select r.idrestaurante, r.nomerestaurante, r.descricao, f.fotocapa from restaurante r 
     inner join foto f on r.idfoto = f.idfoto 
-    where r.categoria = ? and r.situacao = "ativo";`, req.params.categoria, (error, result) => {
+    where r.categoria = ? and r.situacao = 'ativo';`, req.params.categoria, (error, result) => {
         if (error) {
             return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
         }
@@ -22,10 +22,29 @@ routerRestaurante.get("/listar/:categoria", (req, res) => {
     })
 })
 
-routerRestaurante.get("/listardestaque/:", (req, res) => {
-    data.query(`SELECT r.nomerestaurante, r.descricao, f.fotocapa FROM restaurante r 
-    INNER JOIN foto f ON r.idfoto = f.idfoto 
-    WHERE r.categoria = ? AND r.situacao = "ativo";`, req.params.categoria, (error, result) => {
+routerRestaurante.get("/listardestaque", (req, res) => {
+    data.query(`select r.idrestaurante, r.nomerestaurante, f.fotocapa from restaurante r 
+    inner join foto f on r.idfoto = f.idfoto 
+    order by r.datacadastro desc limit 3;`, (error, result) => {
+        if (error) {
+            return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
+        }
+        res.status(200).send({ msg: "Ok", payload: result })
+    })
+})
+
+routerRestaurante.get("/detalhes/:id", (req, res) => {
+    data.query(`select r.idrestaurante, r.nomerestaurante, f.fotocapa, f.foto1, f.foto2, 
+    r.descricao, r.categoria, r.cnpj, r.faixadepreco, r.horariofuncionamento, 
+    c.telefoneresidencial, c.emailcontato, c.telefonecelular, c.website, 
+    e.logradouro, e.numero, e.complemento, e.bairro, e.cep, 
+    fb.nome, fb.opiniao, fb.datapostagem, fb.nota
+    from restaurante r
+    inner join foto f on r.idfoto = f.idfoto
+    inner join contato c on r.idcontato = c.idcontato
+    inner join endereco e on r.idendereco = e.idendereco
+    left join feedback fb on r.idrestaurante = fb.idrestaurante
+    where r.idrestaurante = 5 and r.situacao = 'ativo';`, req.params.id, (error, result) => {
         if (error) {
             return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
         }
