@@ -52,6 +52,19 @@ routerRestaurante.get("/detalhes/:id", (req, res) => {
     })
 })
 
+routerRestaurante.get("/buscar/:bairro", (req, res) => {
+    data.query(`select r.idrestaurante, r.nomerestaurante, r.descricao, f.fotocapa
+    from restaurante r
+    inner join foto f on r.idfoto = f.idfoto
+    inner join endereco e on r.idendereco = e.idendereco
+    where e.bairro = ? and r.situacao = 'ativo';`, req.params.bairro, (error, result) => {
+        if (error) {
+            return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
+        }
+        res.status(200).send({ msg: "Ok", payload: result })
+    })
+})
+
 routerRestaurante.post("/cadastrar", (req, res) => {
     data.query(`insert into restaurante set ?`, req.body, (error, result) => {
         if (error) {
