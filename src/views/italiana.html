@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Comida Italiana</title>
+    <link rel="icon" href="../public/img/icon.png">
+</head>
+
+<body onload="carregarItaliana()">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <nav class="navbar bg-body-tertiary">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../public/img/logo.png" alt="Bootstrap" width="150" height="150">
+                </a>
+            </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restaurantes.html">Restaurante</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trabalheconosco.html">Trabalhe conosco</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar por bairro" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html">
+            <img src="../public/img/arrw.png" alt="Voltar">
+        </a>
+        <div class="teste">
+
+
+        </div>
+
+    </div>
+
+    <div class="conteudoDestaque container ">
+        <div class="alinharTexto">
+            <h2>Restaurantes italianos 🍝</h2>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container Flex">
+            <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
+            <br>
+            <a href="sobre.html" class="linkDecoration">Sobre</a>
+            <br>
+            <a href="trabalheconosco.html" class="linkDecoration">Trabalhe conosco</a>
+            <br>
+            <a href="https://github.com/andradejao/esquinadesampa" class="linkDecoration" target="_blank">Material do
+                projeto</a>
+
+            <div id="social">
+                <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/instagram.png"
+                        alt="Instagram"></a>
+                <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank"><img src="../public/img/whatsapp.png"
+                        alt="Whatsapp"></a>
+                <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img src="../public/img/facebook.png"
+                        alt="Facebook"></a>
+            </div>
+            <div id="copyright">
+                <p>© 2024 - Esquina de Sampa / Este site é um projeto integrador</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="./js/restaurant.js"></script>
+
+</body>
+
+</html>

@@ -31,6 +31,15 @@ body {
 
 }
 
+.btnDisabled {
+    background-color: #A0522D;
+    color: #fffaf0;
+    border: 2px solid #A0522D;
+    padding: 5px;
+    width: 170px !important;
+    border-radius: 5px;
+}
+
 .btn:hover {
     background-color: #A0522D;
     color: #F5F5DC;
@@ -105,8 +114,23 @@ a {
     
 }
 
+.alinharTexto {
+    text-align: center;
+}
+
 .card-title{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.teste {
+    background-color: #A0522D;
+}
+
+.card-img-top{
+    max-width: 300px;
+    min-width: 250px;
+    min-height: 250px;
+    max-height: 300px;
 }
