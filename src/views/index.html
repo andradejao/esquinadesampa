@@ -11,7 +11,7 @@
   <link rel="icon" href="../public/img/icon.png">
 </head>
 
-<body>
+<body onload="carregarDestaques()">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <nav class="navbar bg-body-tertiary">
@@ -89,60 +89,13 @@
     </button>
   </div>
 
-
-  <div class="container">
-    <h2>Restaurantes em destaque</h2>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="..." class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="..." class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="..." class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="conteudoDestaque container">
+      <h2>Restaurantes em destaque</h2>
   </div>
+
   <footer>
     <div class="container Flex">
-      <img src="../public/img/logo.png" alt="Logo" width="150x" height="150px">
+      <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
       <br>
       <a href="sobre.html" class="linkDecoration">Sobre</a>
       <br>
@@ -152,17 +105,20 @@
         projeto</a>
 
       <div id="social">
-        <a href="..." target="_blank"><img src="../public/img/instagram.png" alt="Instagram"></a>
-        <a href="..." target="_blank"><img src="../public/img/whatsapp.png" alt="Whatsapp"></a>
-        <a href="..." target="_blank"><img src="../public/img/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/instagram.png" alt="Instagram"></a>
+        <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank"><img src="../public/img/whatsapp.png"
+            alt="Whatsapp"></a>
+        <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img src="../public/img/facebook.png"
+            alt="Facebook"></a>
       </div>
       <div id="copyright">
         <p>© 2024 - Esquina de Sampa / Este site é um projeto integrador</p>
       </div>
     </div>
   </footer>
-
   <script src="../public/js/bootstrap.min.js"></script>
+  <script src="./js/restaurant.js"></script>
+
 </body>
 
 </html>
