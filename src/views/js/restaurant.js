@@ -77,6 +77,48 @@ function carregarBusca() {
 
 function carregarDetalhes() {
     const idUrl = window.location.search.split("=")
-    console.log(pathName)
-    console.log(pathName[1])
+    const conteudo = document.querySelector('.conteudoDestaque')
+    fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + 5)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+
+            data.payload.map((rs) => {
+                let card = `<div class = "alinharDestaque"><div class="card" style="width: 18rem;">
+                <h4 class="card-title">${rs.nomerestaurante}</h4>
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="${rs.fotocapa}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${rs.foto1}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${rs.foto2}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">${rs.descricao}</p>
+                </div>
+                <section class="content">
+                    <p class="card-text">${rs.descricao}</p>
+                </section>
+            </div></div>`
+
+                conteudo.innerHTML = card
+            })
+        })
+        .catch((error) => console.log(error))
 }   
