@@ -44,7 +44,7 @@ routerRestaurante.get("/detalhes/:id", (req, res) => {
     inner join contato c on r.idcontato = c.idcontato
     inner join endereco e on r.idendereco = e.idendereco
     left join feedback fb on r.idrestaurante = fb.idrestaurante
-    where r.idrestaurante = 5 and r.situacao = 'ativo';`, req.params.id, (error, result) => {
+    where r.idrestaurante = ? and r.situacao = 'ativo';`, req.params.id, (error, result) => {
         if (error) {
             return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
         }
