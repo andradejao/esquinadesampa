@@ -4,10 +4,9 @@ function carregarDestaques() {
     fetch('http://10.26.45.33:4000/api/restaurante/listardestaque')
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             data.payload.map((rs) => {
                 let card = `<div class = "alinharDestaque"><div class="card" style="width: 18rem;">
-                <a href="../detalhes.html?idrestaurante=${rs.idrestaurante}">
+                <a href="detalhes.html?idrestaurante=${rs.idrestaurante}">
             <img src="${rs.fotocapa}" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
@@ -17,8 +16,6 @@ function carregarDestaques() {
 
                 conteudo.innerHTML += card
             })
-
-
         })
         .catch((error) => console.log(error))
 }
@@ -33,10 +30,9 @@ function carregarRestaurante() {
     fetch('http://10.26.45.33:4000/api/restaurante/listar/' + categoriaUrl)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             data.payload.map((rs) => {
                 let card = `<div class = "alinharDestaque"><div class="card" style="width: 18rem;">
-                <a href="../detalhes.html?idrestaurante=${rs.idrestaurante}">
+                <a href="detalhes.html?idrestaurante=${rs.idrestaurante}">
             <img src="${rs.fotocapa}" class="card-img-top" alt="Foto">
             </a>
             <div class="card-body">
@@ -47,8 +43,12 @@ function carregarRestaurante() {
 
                 conteudo.innerHTML += card
             })
-
-
         })
         .catch((error) => console.log(error))
 }
+
+function carregarDetalhes() {
+    const idUrl = window.location.search.split("=")
+    console.log(pathName)
+    console.log(pathName[1])
+}   
