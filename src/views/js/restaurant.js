@@ -72,52 +72,92 @@ function carregarBusca() {
         })
         .catch((error) => console.log(error))
 
-        title.innerHTML = `<h2>Resultados por ${searchValue}</h2>`
+    title.innerHTML = `<h2>Resultados por ${searchValue}</h2>`
 }
 
 function carregarDetalhes() {
     const idUrl = window.location.search.split("=")
+    console.log(idUrl)
     const conteudo = document.querySelector('.conteudoDestaque')
-    fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + 5)
+    const conteudoFeedback = document.querySelector('.cardFeedback')
+
+
+    fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + idUrl[1])
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
 
             data.payload.map((rs) => {
-                let card = `<div class = "alinharDestaque"><div class="card" style="width: 18rem;">
-                <h4 class="card-title">${rs.nomerestaurante}</h4>
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="${rs.fotocapa}" class="d-block w-100" alt="...">
+                let card = `<section class="alinharDetalhes">
+                    <h2 class="title">${rs.nomerestaurante}</h2>
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="${rs.fotocapa}" class="d-block w-100" alt="..." id="imgCarrossel">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="${rs.foto1}" class="d-block w-100" alt="..." id="imgCarrossel">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="${rs.foto2}" class="d-block w-100" alt="..." id="imgCarrossel">
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="${rs.foto1}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="${rs.foto2}" class="d-block w-100" alt="...">
-                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                    <br>
+                    <div class="card-body">
+                        <p class="card-text">${rs.descricao}</p>
+                    </div>
+            </section>
+            <section class="arrumarDetalhes">
+            <div class="card" style="width: 600px;">
                 <div class="card-body">
-                    <p class="card-text">${rs.descricao}</p>
+                    <h3>Detalhes</h3>
+                    <p class="card-text">Faixa de preço: R$${rs.faixadepreco}</p>
+                    <p class="card-text">Categoria: ${rs.categoria}</p>
+                    <p class="card-text">Horário: ${rs.horariofuncionamento}</p>
                 </div>
-                <section class="content">
-                    <p class="card-text">${rs.descricao}</p>
-                </section>
-            </div></div>`
+            </div>
+            </section>
+            <section class="arrumarDetalhes">
+            <div class="card" style="width: 600px;">
+                <div class="card-body">
+                    <h3>Localização e contato</h3>
+                    <p class="card-text"><img src="../public/img/mail.png" style="width: 20px; margin-right:10px;">${rs.emailcontato}</p>
+                    <p class="card-text">Telefone celular: ${rs.telefonecelular}</p>
+                    <p class="card-text">Telefone residencial: ${rs.telefoneresidencial}</p>
+                    <a href="${rs.website}" style="text-decoration: none; color: #000;"><img src="../public/img/site.png" style="width: 20px; margin-right:10px;">${rs.website}</a>
+                    <p class="card-text"><img src="../public/img/localization.png" style="width: 20px; margin-right:10px;">${rs.logradouro}, ${rs.numero}, ${rs.complemento}. ${rs.cep}</p>
+                    <p class="card-text"><img src="../public/img/home.png" style="width: 20px; margin-right:10px;">${rs.bairro}</p>
+                </div>
+            </div>
+            </section>`
 
                 conteudo.innerHTML = card
+
+                let cardFeedback = `
+                <section class="arrumarDetalhes">
+                <div class="card" style="width: 100%;">
+                <div class="card-body ">
+                <p class="card-text">${rs.nome}</p>
+                <p class="card-text">${rs.datapostagem}</p>
+                <p class="card-text">${rs.opiniao}</p>
+                <p class="card-text">Avaliação: ${rs.nota}</p>
+                </div>
+                </div>
+                </section>
+                `
+
+                conteudoFeedback.innerHTML += cardFeedback
             })
         })
         .catch((error) => console.log(error))

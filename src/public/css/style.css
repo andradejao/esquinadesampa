@@ -140,3 +140,24 @@ a {
     background-color: #F5F5DC;
     margin-bottom: 50px;
 }
+
+#imgCarrossel {
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+.alinharDetalhes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.arrumarDetalhes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
