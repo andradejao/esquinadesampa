@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const routerLogin = express.Router()
 const data = require('../../database/config.js')
 
@@ -45,7 +46,14 @@ routerLogin.post("/autenticar", (req, res) => {
                 return res.status(400).send({ msg: "Usuário ou senha incorreto" })
             }
             else {
-                res.status(200).send({ msg: "Autenticado" })
+                let token = jwt.sign(
+                    {
+                        idlogin: result[0].idlogin,
+                        email: result[0].email
+                    },
+                    process.env.JWT_KEY, { expiresIn: "3d" }
+                )
+                res.status(200).send({ msg: "Autenticado", token: token })
             }
         })
     })
