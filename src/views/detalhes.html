@@ -32,9 +32,6 @@
                         <a class="nav-link" href="sobre.html">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="restaurantes.html">Restaurante</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="trabalheconosco.html">Trabalhe conosco</a>
                     </li>
                 </ul>
@@ -64,16 +61,61 @@
     </div>
 
     <div class="container">
-    <div class="conteudoFeedback">
-        <h3>Avaliação</h3>
-        
+        <div class="conteudoFeedback">
+            <h3>Avaliações</h3>
+
             <div class="cardFeedback">
 
             </div>
 
+            <div class="modalFeedback">
+                <button type="button" class="botao" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo" id="modalButton">Faça uma avaliação!</button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title fs-5" id="exampleModalLabel">Avaliação</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id ="form">
+                                    <div class="mb-3">
+                                        <div class="alert"></div>
+                                        <label for="recipient-name" class="col-form-label">Nome:</label>
+                                        <input type="text" class="form-control" id="recipient-name" maxlength="30" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Opinião:</label>
+                                        <textarea class="form-control" id="message-text" maxlength="100" required></textarea>
+                                    </div>
+
+                                    <label for="recipient-name" class="col-form-label">Nota:</label>
+                                    <select class="form-select" aria-label="Default select example" required>
+                                        <option selected></option>
+                                        <option value="1">⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option>
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                    </select>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="buttonFormFeedback">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
+    </div>
     <footer>
         <div class="container Flex">
             <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
@@ -100,6 +142,7 @@
     </footer>
     <script src="../public/js/bootstrap.min.js"></script>
     <script src="./js/restaurant.js"></script>
+    <script src="./js/cadastro.js"></script>
 
 </body>
 

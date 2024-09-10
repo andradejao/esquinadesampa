@@ -79,7 +79,7 @@ function carregarDetalhes() {
     const idUrl = window.location.search.split("=")
     console.log(idUrl)
     const conteudo = document.querySelector('.conteudoDestaque')
-    const conteudoFeedback = document.querySelector('.cardFeedback')
+    const conteudoFeedback = document.querySelector('.cardFeedback')    
 
 
     fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + idUrl[1])
@@ -146,19 +146,21 @@ function carregarDetalhes() {
 
                 let cardFeedback = `
                 <section class="arrumarDetalhes">
-                <div class="card" style="width: 100%;">
-                <div class="card-body ">
-                <p class="card-text">${rs.nome}</p>
-                <p class="card-text">${rs.datapostagem}</p>
-                <p class="card-text">${rs.opiniao}</p>
-                <p class="card-text">Avaliação: ${rs.nota}</p>
+                <div class="card" style="width: 100%; padding: 1em; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-weight: bold;">${rs.nome}</h5>
+                        <p class="card-subtitle text-muted" style="margin-bottom: 1em;">Postado em: ${rs.datapostagem}</p>
+                        <p class="card-text">${rs.opiniao}</p>
+                        <p class="card-text"> ${'⭐'.repeat(rs.nota)}</p>
+                    </div>
                 </div>
-                </div>
-                </section>
-                `
+            </section> `
 
-                conteudoFeedback.innerHTML += cardFeedback
+                conteudoFeedback.innerHTML += cardFeedback           
+        
             })
         })
+
         .catch((error) => console.log(error))
-}   
+} 
+

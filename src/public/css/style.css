@@ -111,14 +111,14 @@ a {
     align-items: center;
     margin-bottom: 20px;
     margin-top: 10px;
-    
+
 }
 
 .alinharTexto {
     text-align: center;
 }
 
-.card-title{
+.card-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +128,7 @@ a {
     background-color: #A0522D;
 }
 
-.card-img-top{
+.card-img-top {
     max-width: 300px;
     min-width: 250px;
     min-height: 250px;
@@ -160,4 +160,23 @@ a {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+
+.modalFeedback {
+    display: flex;
+    justify-content: right;
+}
+
+.botao {
+    width: 75%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    background-color: #8b5e3c;
+    color: #fffaf0;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-top: 20px;
+
 }
