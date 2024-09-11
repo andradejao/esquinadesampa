@@ -79,8 +79,7 @@ function carregarDetalhes() {
     const idUrl = window.location.search.split("=")
     console.log(idUrl)
     const conteudo = document.querySelector('.conteudoDestaque')
-    const conteudoFeedback = document.querySelector('.cardFeedback')    
-
+    const conteudoFeedback = document.querySelector('.cardFeedback')
 
     fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + idUrl[1])
         .then((response) => response.json())
@@ -88,6 +87,15 @@ function carregarDetalhes() {
             console.log(data)
 
             data.payload.map((rs) => {
+
+                // Formatação da data de postagem do feedback
+                const data = rs.datapostagem
+                const dataObjeto = new Date(data)
+                const dia = String(dataObjeto.getUTCDate()).padStart(2, '0')
+                const mes = String(dataObjeto.getUTCMonth() + 1).padStart(2, '0')
+                const ano = dataObjeto.getUTCFullYear()
+                const dataFormatada = `${dia}-${mes}-${ano}`
+
                 let card = `<section class="alinharDetalhes">
                     <h2 class="title">${rs.nomerestaurante}</h2>
                     <div id="carouselExample" class="carousel slide">
@@ -152,18 +160,30 @@ function carregarDetalhes() {
                 <div class="card" style="width: 100%; padding: 1em; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold;">${rs.nome}</h5>
-                        <p class="card-subtitle text-muted" style="margin-bottom: 1em;">Postado em: ${rs.datapostagem}</p>
+                        <p class="card-subtitle text-muted" style="margin-bottom: 1em;">Postado em: ${dataFormatada}</p>
                         <p class="card-text">${rs.opiniao}</p>
                         <p class="card-text"> ${'⭐'.repeat(rs.nota)}</p>
                     </div>
                 </div>
             </section> `
 
-                conteudoFeedback.innerHTML += cardFeedback           
-        
+                conteudoFeedback.innerHTML += cardFeedback
+
             })
+
         })
 
         .catch((error) => console.log(error))
-} 
+
+        // Buscando rota de cálculo de média de nota
+    fetch('http://10.26.45.33:4000/api/feedback/listarmedia/' + idUrl[1])
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            data.payload.map((rs) => {
+                
+            })
+        })
+
+}
 

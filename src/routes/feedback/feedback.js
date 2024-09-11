@@ -20,4 +20,14 @@ routerFeedback.post("/cadastrar", (req, res) => {
     })
 })
 
+routerFeedback.get("/listarmedia/:id", (req, res) => {
+    data.query(`select avg(nota) as media_notas
+    from feedback where idrestaurante = ?`, req.params.id, (error, result) => {
+        if(error){
+            return res.status(500).send({msg: "Erro ao carregar a seleção"})
+        }
+        res.status(201).send({msg: "Ok", payload: result})
+    })
+})
+
 module.exports = routerFeedback
