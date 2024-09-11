@@ -122,9 +122,9 @@ function carregarDetalhes() {
             <div class="card" style="width: 600px;">
                 <div class="card-body">
                     <h3>Detalhes</h3>
-                    <p class="card-text">Faixa de preço: R$${rs.faixadepreco}</p>
-                    <p class="card-text">Categoria: ${rs.categoria}</p>
-                    <p class="card-text">Horário: ${rs.horariofuncionamento}</p>
+                    <p class="card-text">A partir de: R$${rs.faixadepreco}</p>
+                    <p class="card-text">Culinária ${rs.categoria}</p>
+                    <p class="card-text">Funcionamento: ${rs.horariofuncionamento}</p>
                 </div>
             </div>
             </section>
@@ -132,10 +132,13 @@ function carregarDetalhes() {
             <div class="card" style="width: 600px;">
                 <div class="card-body">
                     <h3>Localização e contato</h3>
-                    <p class="card-text"><img src="../public/img/mail.png" style="width: 20px; margin-right:10px;">${rs.emailcontato}</p>
-                    <p class="card-text">Telefone celular: ${rs.telefonecelular}</p>
+                    <a href="mailto:${rs.emailcontato}" style="text-decoration: none; color: #000; cursor: pointer;"><img src="../public/img/mail.png" style="width: 20px; margin-right:10px;">${rs.emailcontato}</a>
+                    <br><br>
+                    <a href="https://api.whatsapp.com/send?phone=${rs.telefonecelular}" style="text-decoration: none; color: #000; cursor: pointer;">Telefone celular: ${rs.telefonecelular}</a>
+                    <br><br>
                     <p class="card-text">Telefone residencial: ${rs.telefoneresidencial}</p>
                     <a href="${rs.website}" style="text-decoration: none; color: #000;"><img src="../public/img/site.png" style="width: 20px; margin-right:10px;">${rs.website}</a>
+                    <br><br>
                     <p class="card-text"><img src="../public/img/localization.png" style="width: 20px; margin-right:10px;">${rs.logradouro}, ${rs.numero}, ${rs.complemento}. ${rs.cep}</p>
                     <p class="card-text"><img src="../public/img/home.png" style="width: 20px; margin-right:10px;">${rs.bairro}</p>
                 </div>
