@@ -5,3 +5,17 @@ function capturarValor() {
     localStorage.setItem('searchValue', inputSearch)
     window.location.href = 'busca.html'
 }
+
+// Função responsável por ocultar e mostrar a senha digitada
+function ocultarSenha() {
+    const eye = document.querySelector('.icon')
+    const input = document.querySelector('#inputPassword')
+
+    if (input.type === 'password') {
+        input.type = 'text'
+        eye.src = "../public/img/eyeclosed.png"
+    } else {
+        input.type = 'password'
+        eye.src = "../public/img/eyeopen.png"
+    }
+}

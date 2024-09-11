@@ -47,7 +47,6 @@ button.addEventListener('click', () => {
                 alert.innerHTML = `<div class="alert alert-success" role="alert">
                 Comentário adicionado
               </div>`
-                form.reset()
                 window.location.reload()
 
     }
