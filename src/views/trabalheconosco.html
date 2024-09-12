@@ -11,7 +11,7 @@
   <link rel="icon" href="../public/img/icon.png">
 </head>
 
-<body>
+<body onload="cadastrarRestaurante()">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <nav class="navbar bg-body-tertiary">
@@ -43,24 +43,22 @@
     </div>
   </nav>
 
-  <div class="conteudoDestaque container">
+  <div class="container">
     <h2>Cadastre seu Restaurante</h2>
-
-
   </div>
 
   <div class="container">
     <div class="col-md-8">
-      <label for="inputName" class="form-label">Nome</label>
+      <label for="inputName" class="form-label">Nome do Restaurante</label>
       <input type="text" class="form-control" id="inputName" maxlength="50" spellcheck="false" required>
     </div>
     <br>
     <div class="col-md-8">
-      <label for="inputCnpj" class="form-label">Cnpj</label>
-      <input type="text" class="form-control" id="inputCnpj" maxlength="20" spellcheck="false" required>
+      <label for="inputCnpj" class="form-label">CNPJ</label>
+      <input type="number" class="form-control" id="inputCnpj" maxlength="20" spellcheck="false" required>
     </div>
     <br>
-    <label for="inputCategoria" class="form-label">Selecione a Categoria</label>
+    <label for="inputCategoria" class="form-label">Culinária</label>
     <select class="form-select" aria-label="Default select example">
       <option selected></option>
       <option value="1">Árabe </option>
@@ -72,84 +70,168 @@
     </select>
     <br>
     <div class="col-md-8">
-      <label for="inputPreco" class="form-label">Faixa de Preço (a partir de:)</label>
-      <input type="text" class="form-control" id="inputPreco" maxlength="20" spellcheck="false" required>
+      <label for="inputPreco" class="form-label">Faixa de Preço (a partir de)</label>
+      <input type="number" class="form-control" id="inputPreco" maxlength="20" spellcheck="false" required>
+    </div>
+    <br>
+
+    <div class="alinharFuncionamento">
+      <label>Funcionamento</label>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Seg" id="checkSeg">
+        <label class="form-check-label" for="checkSeg">Segunda-Feira</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="checkTer">
+        <label class="form-check-label" for="checkTer">Terça-feira</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Qua" id="checkQua">
+        <label class="form-check-label" for="checkQua">Quarta-feira</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Qui" id="checkQui">
+        <label class="form-check-label" for="checkQui">Quinta-feira</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Sex" id="checkSex">
+        <label class="form-check-label" for="checkSex">Sexta-feira</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Sab" id="checkSab">
+        <label class="form-check-label" for="checkSab">Sábado</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Dom" id="checkDom">
+        <label class="form-check-label" for="checkDom">Domingo</label>
+      </div>
+      <br>
+      <div class="col-md-3">
+        <label class="form-label">Horário</label>
+        <br>
+        <label for="">Início</label>
+        <input type="time" class="form-control" id="inputHour" spellcheck="false" required>
+        <label for="">Término</label>
+        <input type="time" class="form-control" id="inputHour2" spellcheck="false" required>
+      </div>
+      <br>
+    </div>
+    <div class="mb-3">
+      <label for="inputDescricao" class="form-label">Descrição</label>
+      <textarea class="form-control" id="inputDescricao" rows="3" maxlength="255"></textarea>
+    </div>
+    <br>
+    <hr>
+    <div class="alinharEndereco">
+      <label>Endereço</label>
+      <br>
+      <br>
+      <div class="col-md-8">
+        <label for="inputLogradouro" class="form-label">Logradouro</label>
+        <input type="text" class="form-control" id="inputLogradouro" maxlength="50" spellcheck="false" required>
+      </div>
+      <br>
+
+      <div class="col-md-8">
+        <label for="inputNumero" class="form-label">Número</label>
+        <input type="number" class="form-control" id="inputNumero" spellcheck="false" required>
+      </div>
+      <br>
+
+      <div class="col-md-8">
+        <label for="inputComplemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="inputComplemento" spellcheck="false">
+      </div>
+      <br>
+
+      <div class="col-md-8">
+        <label for="inputBairro" class="form-label">Bairro</label>
+        <input type="text" class="form-control" id="inputBairro" spellcheck="false" required>
+      </div>
+      <br>
+
+      <div class="col-md-8">
+        <label for="inputCep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="inputCep" maxlength="8" spellcheck="false" required>
+      </div>
+      <br>
+    </div>
+    <hr>
+    <div class="col-md-8">
+      <label for="inputTelefoneResidencial" class="form-label">Telefone Residencial</label>
+      <input type="tel" class="form-control" id="inputTelefoneResidencial" maxlength="15" spellcheck="false" required>
     </div>
     <br>
 
     <div class="col-md-8">
-      <label for="inputHorario" class="form-label">Horario</label>
-      <input type="text" class="form-control" id="inputHorario" maxlength="20" spellcheck="false" required>
+      <label for="inputTelefoneCelular" class="form-label">Telefone Celular</label>
+      <input type="tel" class="form-control" id="inputTelefone Celular" maxlength="15" spellcheck="false" required>
     </div>
     <br>
 
-    <div class="mb-3">
-      <label for="inputDescricao" class="form-label">Descrição</label>
-      <textarea class="form-control" id="inputDescricao" rows="3"></textarea>
+    <div class="col-md-8">
+      <label for="inputAddress" class="form-label">E-mail</label>
+      <input type="email" class="form-control" id="inputAddress" maxlength="50" spellcheck="false" required>
+    </div>
+    <br>
+
+    <div class="col-md-8">
+      <label for="inputWebSite" class="form-label">Web Site</label>
+      <input type="url" class="form-control" id="inputWebSite" maxlength="255" spellcheck="false" required>
+    </div>
+    <br>
+
+    <div class="col-md-8">
+      <label for="inputCapa" class="form-label">URL da Foto de Capa</label>
+      <input type="url" class="form-control" id="inputCapa" maxlength="255" spellcheck="false" required>
+    </div>
+    <br>
+
+    <div class="col-md-8">
+      <label for="inputFoto1" class="form-label">URL da Primeira Foto</label>
+      <input type="url" class="form-control" id="inputFoto1" maxlength="255" spellcheck="false" required>
+    </div>
+    <br>
+
+    <div class="col-md-8">
+      <label for="inputFoto2" class="form-label">URL da Segunda Foto</label>
+      <input type="url" class="form-control" id="inputFoto2" maxlength="255" spellcheck="false" required>
+    </div>
+    <br>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" id="buttonFormFeedback">Enviar</button>
     </div>
 
-  </div>
 
+    <footer>
+      <div class="container Flex">
+        <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
+        <br>
+        <a href="sobre.html" class="linkDecoration">Sobre</a>
+        <br>
+        <a href="trabalheconosco.html" class="linkDecoration">Trabalhe conosco</a>
+        <br>
+        <a href="https://github.com/andradejao/esquinadesampa" class="linkDecoration" target="_blank">Material do
+          projeto</a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <footer>
-    <div class="container Flex">
-      <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
-      <br>
-      <a href="sobre.html" class="linkDecoration">Sobre</a>
-      <br>
-      <a href="trabalheconosco.html" class="linkDecoration">Trabalhe conosco</a>
-      <br>
-      <a href="https://github.com/andradejao/esquinadesampa" class="linkDecoration" target="_blank">Material do
-        projeto</a>
-
-      <div id="social">
-        <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/instagram_icon.png"
-            alt="Instagram"></a>
-        <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank"><img src="../public/img/whatsapp_icon.png"
-            alt="Whatsapp"></a>
-        <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img src="../public/img/facebook_icon.png"
-            alt="Facebook"></a>
+        <div id="social">
+          <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/instagram_icon.png"
+              alt="Instagram"></a>
+          <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank"><img src="../public/img/whatsapp_icon.png"
+              alt="Whatsapp"></a>
+          <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img src="../public/img/facebook_icon.png"
+              alt="Facebook"></a>
+        </div>
+        <div id="copyright">
+          <p>© 2024 - Esquina de Sampa / Este site é um projeto integrador</p>
+        </div>
       </div>
-      <div id="copyright">
-        <p>© 2024 - Esquina de Sampa / Este site é um projeto integrador</p>
-      </div>
-    </div>
-  </footer>
-  <script src="../public/js/bootstrap.min.js"></script>
-  <script src="./js/restaurant.js"></script>
+    </footer>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="./js/cadastro.js"></script>
+    <script src="./js/utilities.js"></script>
 
 </body>
 

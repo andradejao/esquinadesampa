@@ -24,3 +24,16 @@ function publicarFeedback() {
         })
         .catch((error) => console.error("Erro ao acessar a api" + error))
 }
+
+function cadastrarRestaurante() {
+    // let array = []
+    // let radio = document.querySelector('#flexCheckDefault').value
+    // let radio2 = document.querySelector('#flexCheckDefault2').value
+    // let radio3 = document.querySelector('#flexCheckDefault3').value
+    // if(radio2 == ""){
+    //     array.push(radio,radio3)
+    //     console.log(array)
+    // }
+    // array.push(radio, radio2, radio3)
+    // console.log(array); 
+}

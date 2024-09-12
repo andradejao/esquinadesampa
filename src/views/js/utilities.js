@@ -19,3 +19,22 @@ function ocultarSenha() {
         eye.src = "../public/img/eyeopen.png"
     }
 }
+
+// Função responsável por automatizar o endereço pela busca do CEP através de API
+// ativar função com blur
+const input = document.getElementById('inputCep')
+input.addEventListener('blur', () => {
+    let cep = document.querySelector('#inputCep').value
+    let urlAPI = `https://viacep.com.br/ws/${cep}/json/`
+    // uso de promisse para recuperar os dados do webservices (API)
+    fetch(urlAPI)
+        .then((response) => { //obter os dados
+            return response.json()
+        })
+        .then((dados) => { //manipular os dados obtidos
+            document.getElementById('')
+        })
+        .catch((error) => {
+            console.log(`Erro ao obter o endereço: ${error}`)
+        })
+})
