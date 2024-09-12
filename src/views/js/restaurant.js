@@ -76,23 +76,22 @@ function carregarBusca() {
 }
 
 function carregarDetalhes() {
-    const idUrl = window.location.search.split("=")[1];
-    const conteudo = document.querySelector('.conteudoDestaque');
-    const conteudoFeedback = document.querySelector('.cardFeedback');
+    const idUrl = window.location.search.split("=")[1]
+    const conteudo = document.querySelector('.conteudoDestaque')
+    const conteudoFeedback = document.querySelector('.cardFeedback')
 
     fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + idUrl)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            console.log(data)
 
             data.payload.map((rs) => {
-                // Formatação da data de postagem do feedback
-                const dataPostagem = rs.datapostagem;
-                const dataObjeto = new Date(dataPostagem);
-                const dia = String(dataObjeto.getUTCDate()).padStart(2, '0');
-                const mes = String(dataObjeto.getUTCMonth() + 1).padStart(2, '0');
-                const ano = dataObjeto.getUTCFullYear();
-                const dataFormatada = `${dia}-${mes}-${ano}`;
+                const dataPostagem = rs.datapostagem
+                const dataObjeto = new Date(dataPostagem)
+                const dia = String(dataObjeto.getUTCDate()).padStart(2, '0')
+                const mes = String(dataObjeto.getUTCMonth() + 1).padStart(2, '0')
+                const ano = dataObjeto.getUTCFullYear()
+                const dataFormatada = `${dia}-${mes}-${ano}`
 
                 let card = `<section class="alinharDetalhes">
                     <h2 class="title">${rs.nomerestaurante}</h2>
@@ -161,9 +160,9 @@ function carregarDetalhes() {
                             </p>
                         </div>
                     </div>
-                </section>`;
+                </section>`
 
-                conteudo.innerHTML = card;
+                conteudo.innerHTML = card
 
                 let cardFeedback = `
                 <section class="arrumarDetalhes">
@@ -175,30 +174,28 @@ function carregarDetalhes() {
                             <p class="card-text"> ${'⭐'.repeat(rs.nota)}</p>
                         </div>
                     </div>
-                </section>`;
+                </section>`
 
-                conteudoFeedback.innerHTML += cardFeedback;
-            });
+                conteudoFeedback.innerHTML += cardFeedback
+            })
         })
-        .catch((error) => console.log(error));
-
-    // Chamar a função que carrega a média de feedback
-    carregarMediaFeedback();
+        .catch((error) => console.log(error))
+    carregarMediaFeedback()
 }
 
 function carregarMediaFeedback() {
-    const idUrl = window.location.search.split("=")[1];
-    const extraDataDiv = document.querySelector('.extraData');
+    const idUrl = window.location.search.split("=")[1]
+    const extraDataDiv = document.querySelector('.extraData')
 
     fetch('http://10.26.45.33:4000/api/feedback/listarmedia/' + idUrl)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            console.log(data)
             data.payload.map((rs) => {
-                let media = Number(rs.media);
+                let media = Number(rs.media)
                 let star = ""
                 let mediaHtml = ""
-                console.log(media.toFixed(1));
+                console.log(media.toFixed(1))
 
                 if (media.toFixed(0) == 1) {
                     star = "⭐☆☆☆☆"
@@ -242,14 +239,9 @@ function carregarMediaFeedback() {
                     </section>`
                 }
 
-
-                // Inserir a média de avaliações na div extraData
-
-
-                // Adicionando o conteúdo na div extraData
-                extraDataDiv.innerHTML = mediaHtml;
+                extraDataDiv.innerHTML = mediaHtml
             });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
 }
 
