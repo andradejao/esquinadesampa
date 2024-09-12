@@ -32,7 +32,7 @@ routerLogin.post("/cadastrar", (req, res) => {
     })
 })
 
-routerLogin.post("/autenticar", (req, res) => {
+routerLogin.post("/autenticar",  (req, res) => {
     let sh = req.body.senha
     data.query("select * from login where email=?", req.body.email, (error, result) => {
         if (error || result[0] == null) {

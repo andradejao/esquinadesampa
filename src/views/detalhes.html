@@ -81,7 +81,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="form">
+                        <form onsubmit="return false" id="form">
                             <div class="mb-3">
                                 <div class="alert"></div>
                                 <label for="recipient-name" class="col-form-label">Nome:</label>
@@ -102,7 +102,7 @@
                                 <option value="5">⭐⭐⭐⭐⭐</option>
                             </select>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" id="buttonFormFeedback">Enviar</button>
+                                <button type="submit" class="btn btn-primary" id="buttonFormFeedback" onclick="publicarFeedback()">Enviar</button>
                             </div>
                         </form>
                     </div>
