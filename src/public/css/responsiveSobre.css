@@ -1,0 +1,63 @@
+/* Definindo o estilo base para os cards */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .card .row {
+    flex: 1;
+  }
+  
+  .card img {
+    object-fit: cover;
+    height: auto;
+    max-height: 100%; /* Ajusta a altura da imagem */
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .card-body h5 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-body p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+  
+  .card-body a {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  /* Ajuste dos ícones de redes sociais */
+  .card-body img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+  }
+  
+  /* Ajusta o alinhamento da imagem principal do card */
+  .card .col-md-4 {
+    display: flex;
+    align-items: flex-end; /* Garante que a imagem principal fique no final do card */
+  }
+  
+  /* Definindo o estilo para a imagem que alinha com a última rede social */
+  .card .col-md-4 img {
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
+    max-height: 250px;
+    object-fit: cover; /* Garante que a imagem ocupe o espaço sem deformação */
+  }
+  

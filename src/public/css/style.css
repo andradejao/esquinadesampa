@@ -27,17 +27,7 @@ body {
     color: #fffaf0;
     border: 2px solid #8b5e3c;
     padding: 5px;
-    width: 170px !important;
-
-}
-
-.btnDisabled {
-    background-color: #A0522D;
-    color: #fffaf0;
-    border: 2px solid #A0522D;
-    padding: 5px;
-    width: 170px !important;
-    border-radius: 5px;
+    width: 170px;
 }
 
 .btn:hover {

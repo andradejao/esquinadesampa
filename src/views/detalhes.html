@@ -2,135 +2,139 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/style.css">
-    <title>Destaque de Restaurantes</title>
-    <link rel="icon" href="../public/img/icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/css/style.css">
+  <title>Destaque de Restaurantes</title>
+  <link rel="icon" href="../public/img/icon.png">
 </head>
 
 <body onload="carregarDetalhes()">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <nav class="navbar bg-body-tertiary">
-                <a class="navbar-brand" href="index.html">
-                    <img src="../public/img/logo.png" alt="Bootstrap" width="150" height="150">
-                </a>
-            </nav>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sobre.html">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="trabalheconosco.html">Trabalhe conosco</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar por bairro" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <a href="index.html">
-            <img src="../public/img/arrw.png" alt="Voltar">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <nav class="navbar bg-body-tertiary">
+        <a class="navbar-brand" href="index.html">
+          <img src="../public/img/logo.png" alt="Bootstrap" width="150" height="150">
         </a>
+      </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sobre.html">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trabalheconosco.html">Trabalhe conosco</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar por bairro" aria-label="Search"
+            id="inputSearch">
+          <a href="busca.html">
+            <button class="btn btn-outline-success" type="button" onclick="capturarValor()">Buscar</button>
+          </a>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <a href="index.html">
+      <img src="../public/img/arrw.png" alt="Voltar">
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="conteudoDestaque">
     </div>
 
-    <div class="container">
-        <div class="conteudoDestaque">
-        </div>
+    <div class="extraData">
+    </div>
 
-        <div class="extraData">
-        </div>
-
-        <div class="cardFeedback">
-        </div>
+    <div class="cardFeedback">
+    </div>
 
     <div class="modalFeedback">
-        <button type="button" class="botao" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            data-bs-whatever="@mdo" id="modalButton">Faça uma avaliação!</button>
+      <button type="button" class="botao" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+        id="modalButton">Faça uma avaliação!</button>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-5" id="exampleModalLabel">Avaliação</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form onsubmit="return false" id="form">
-                            <div class="mb-3">
-                                <div class="alert"></div>
-                                <label for="recipient-name" class="col-form-label">Nome:</label>
-                                <input type="text" class="form-control" id="recipient-name" maxlength="30" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Opinião:</label>
-                                <textarea class="form-control" id="message-text" maxlength="100" required></textarea>
-                            </div>
-
-                            <label for="recipient-name" class="col-form-label">Nota:</label>
-                            <select class="form-select" aria-label="Default select example" required>
-                                <option selected></option>
-                                <option value="1">⭐</option>
-                                <option value="2">⭐⭐</option>
-                                <option value="3">⭐⭐⭐</option>
-                                <option value="4">⭐⭐⭐⭐</option>
-                                <option value="5">⭐⭐⭐⭐⭐</option>
-                            </select>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary" id="buttonFormFeedback" onclick="publicarFeedback()">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5" id="exampleModalLabel">Avaliação</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form onsubmit="return false" id="form">
+                <div class="mb-3">
+                  <div class="alert"></div>
+                  <label for="recipient-name" class="col-form-label">Nome:</label>
+                  <input type="text" class="form-control" id="recipient-name" maxlength="30" required>
                 </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Opinião:</label>
+                  <textarea class="form-control" id="message-text" maxlength="100" required></textarea>
+                </div>
+
+                <label for="recipient-name" class="col-form-label">Nota:</label>
+                <select class="form-select" aria-label="Default select example" required>
+                  <option selected></option>
+                  <option value="1">⭐</option>
+                  <option value="2">⭐⭐</option>
+                  <option value="3">⭐⭐⭐</option>
+                  <option value="4">⭐⭐⭐⭐</option>
+                  <option value="5">⭐⭐⭐⭐⭐</option>
+                </select>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" id="buttonFormFeedback"
+                    onclick="publicarFeedback()">Enviar</button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  </div>
+
+  <footer>
+    <div class="container Flex">
+      <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
+      <br>
+      <a href="sobre.html" class="linkDecoration">Sobre</a>
+      <br>
+      <a href="trabalheconosco.html" class="linkDecoration">Trabalhe conosco</a>
+      <br>
+      <a href="https://github.com/andradejao/esquinadesampa" class="linkDecoration" target="_blank">Material do
+        projeto</a>
+
+      <div id="social">
+        <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/instagram_icon.png"
+            alt="Instagram"></a>
+        <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank"><img src="../public/img/whatsapp_icon.png"
+            alt="Whatsapp"></a>
+        <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img src="../public/img/facebook_icon.png"
+            alt="Facebook"></a>
+      </div>
+      <div id="copyright">
+        <p>© 2024 - Esquina de Sampa / Este site é um projeto integrador</p>
+      </div>
     </div>
-    </div>
+  </footer>
 
-    <footer>
-        <div class="container Flex">
-            <img src="../public/img/logoBranca.png" alt="Logo" width="150x" height="150px">
-            <br>
-            <a href="sobre.html" class="linkDecoration">Sobre</a>
-            <br>
-            <a href="trabalheconosco.html" class="linkDecoration">Trabalhe conosco</a>
-            <br>
-            <a href="https://github.com/andradejao/esquinadesampa" class="linkDecoration" target="_blank">Material do
-                projeto</a>
-
-            <div id="social">
-                <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/instagram_icon.png"
-                        alt="Instagram"></a>
-                <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank"><img
-                        src="../public/img/whatsapp_icon.png" alt="Whatsapp"></a>
-                <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img
-                        src="../public/img/facebook_icon.png" alt="Facebook"></a>
-            </div>
-            <div id="copyright">
-                <p>© 2024 - Esquina de Sampa / Este site é um projeto integrador</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script src="./js/restaurant.js"></script>
-    <script src="./js/cadastro.js"></script>
+  <script src="../public/js/bootstrap.min.js"></script>
+  <script src="./js/restaurant.js"></script>
+  <script src="./js/cadastro.js"></script>
+  <script src="./js/utilities.js"></script>
 
 </body>
 

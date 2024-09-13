@@ -1,5 +1,5 @@
 function carregarDestaques() {
-    const conteudo = document.querySelector('.conteudoDestaque')
+    const conteudo = document.querySelector('.flexCardDestaque')
 
     fetch('http://10.26.45.33:4000/api/restaurante/listardestaque')
         .then((response) => response.json())
@@ -7,12 +7,13 @@ function carregarDestaques() {
             data.payload.map((rs) => {
                 let card = `<div class = "alinharDestaque"><div class="card" style="width: 18rem;">
                 <a href="detalhes.html?idrestaurante=${rs.idrestaurante}">
-            <img src="${rs.fotocapa}" class="card-img-top" alt="...">
+            <img src="${rs.fotocapa}" class="card-img-top" alt="Foto da Capa">
             </a>
             <div class="card-body">
     <h5 class="card-title">${rs.nomerestaurante}</h5>
   </div>
-</div> </div>`
+</div>
+</div>`
 
                 conteudo.innerHTML += card
             })
@@ -25,7 +26,7 @@ function carregarRestaurante() {
     const url = pathName[3]
     const categoria = url.split(".")
     const categoriaUrl = categoria[0]
-    const conteudo = document.querySelector('.conteudoDestaque')
+    const conteudo = document.querySelector('.flexCardDestaque')
 
     fetch('http://10.26.45.33:4000/api/restaurante/listar/' + categoriaUrl)
         .then((response) => response.json())
@@ -39,7 +40,8 @@ function carregarRestaurante() {
     <h5 class="card-title">${rs.nomerestaurante}</h5>
     <p class="card-text">${rs.descricao}</p>
   </div>
-</div> </div>`
+</div>
+</div>`
 
                 conteudo.innerHTML += card
             })
