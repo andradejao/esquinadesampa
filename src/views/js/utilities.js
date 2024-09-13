@@ -26,13 +26,13 @@ const input = document.getElementById('inputCep')
 input.addEventListener('blur', () => {
     let cep = document.querySelector('#inputCep').value
     let urlAPI = `https://viacep.com.br/ws/${cep}/json/`
-    // uso de promisse para recuperar os dados do webservices (API)
     fetch(urlAPI)
-        .then((response) => { //obter os dados
+        .then((response) => {
             return response.json()
         })
-        .then((dados) => { //manipular os dados obtidos
-            document.getElementById('')
+        .then((dados) => {
+            document.getElementById('inputLogradouro').value = dados.logradouro
+            document.getElementById('inputBairro').value = dados.bairro
         })
         .catch((error) => {
             console.log(`Erro ao obter o endereço: ${error}`)
