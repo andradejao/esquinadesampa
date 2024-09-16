@@ -4,25 +4,29 @@ function publicarFeedback() {
     let nomeFeedback = document.querySelector('#recipient-name')
     let opiniaoFeedback = document.querySelector('#message-text')
     let notaFeedback = document.querySelector('.form-select')
-    fetch('http://10.26.45.33:4000/api/feedback/cadastrar', {
-        method: 'POST',
-        headers: {
-            'accept': 'application/json',
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            nome: nomeFeedback.value,
-            opiniao: opiniaoFeedback.value,
-            nota: notaFeedback.value,
-            idrestaurante: id[1]
+    if (opiniaoFeedback.value == "") {
+        return
+    } else {
+        fetch('http://10.26.45.33:4000/api/feedback/cadastrar', {
+            method: 'POST',
+            headers: {
+                'accept': 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                nome: nomeFeedback.value,
+                opiniao: opiniaoFeedback.value,
+                nota: notaFeedback.value,
+                idrestaurante: id[1]
+            })
         })
-    })
-        .then((response) => response.json())
-        .then((result) => {
-            console.log(result)
-            window.location.reload()
-        })
-        .catch((error) => console.error("Erro ao acessar a api" + error))
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result)
+                window.location.reload()
+            })
+            .catch((error) => console.error("Erro ao acessar a api" + error))
+    }
 }
 
 // Função responsável pelo cadastro do restaurante
@@ -30,7 +34,7 @@ function cadastrarRestaurante() {
     const nomeRestaurante = document.getElementById('inputName').value
     const cnpjRestaurante = document.getElementById('inputCnpj').value
     const categoriaRestaurante = document.getElementById('selectCategoria').value
-    const precoRestaurante = document.getElementById('inputPreco').value
+    const precoRestaurante = document.getElementById('inputPreco').value.replace(',', '.')
     const descricaoRestaurante = document.getElementById('inputDescricao').value
     const cepRestaurante = document.getElementById('inputCep').value
     const logradouroRestaurante = document.getElementById('inputLogradouro').value
@@ -54,7 +58,10 @@ function cadastrarRestaurante() {
         valorSelecionado.push(checkbox.value)
     })
 
-    let funcionamento = valorSelecionado + horario
+    let diasFuncionamento = valorSelecionado.join(', ');
+    let horarioFuncionamento = `${hour} - ${hour2}`;
+
+    let funcionamento = `${diasFuncionamento}: ${horarioFuncionamento}`
 
     fetch('http://10.26.45.33:4000/api/restaurante/cadastrar', {
         method: 'POST',
