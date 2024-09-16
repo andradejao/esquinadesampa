@@ -72,7 +72,7 @@ routerRestaurante.post("/cadastrar", (req, res) => {
     values(?, ?, ?, ?)`, [req.body.telefoneresidencial, req.body.emailcontato, req.body.telefonecelular,
     req.body.website], (error, result) => {
         if (error) {
-            return res.status(500).send({ msg: "Erro ao cadastrar o contato" + error })
+            return res.status(500).send({ msg: "Erro ao cadastrar o contato", error: error })
         }
         const idContato = result.insertId
         // Final do cadastro de contato <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -82,7 +82,7 @@ routerRestaurante.post("/cadastrar", (req, res) => {
         values( ?, ?, ?, ?, ?)`, [req.body.logradouro, req.body.numero, req.body.complemento, req.body.bairro,
         req.body.cep], (error, result) => {
             if (error) {
-                return res.status(500).send({ msg: "Erro ao cadastrar o endereço" + error })
+                return res.status(500).send({ msg: "Erro ao cadastrar o endereço", error: error })
             }
             const idEndereco = result.insertId
             // Final do cadastro de endereço <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -91,7 +91,7 @@ routerRestaurante.post("/cadastrar", (req, res) => {
             data.query(`insert into foto (fotocapa, foto1, foto2) values (?, ?, ?)`,
                 [req.body.fotocapa, req.body.foto1, req.body.foto2], (error, result) => {
                     if (error) {
-                        return res.status(500).send({ msg: "Erro ao cadastrar a foto" + error })
+                        return res.status(500).send({ msg: "Erro ao cadastrar a foto", error: error })
                     }
                     const idFoto = result.insertId
                     // Final do cadastro de foto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -104,7 +104,7 @@ routerRestaurante.post("/cadastrar", (req, res) => {
                         req.body.faixadepreco, req.body.horariofuncionamento,
                             idContato, idEndereco, idFoto, req.body.situacao], (error, result) => {
                                 if (error) {
-                                    return res.status(500).send({ msg: "Erro ao cadastrar o restaurante" + error })
+                                    return res.status(500).send({ msg: "Erro ao cadastrar o restaurante", error: error })
                                 }
                                 res.status(201).send({ msg: "Cadastrado", payload: result })
                             })
