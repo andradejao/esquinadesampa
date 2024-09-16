@@ -123,6 +123,7 @@ function carregarDetalhes() {
                         <p class="card-text">${rs.descricao}</p>
                     </div>
                 </section>
+
                 <section class="arrumarDetalhes">
                     <div class="card" style="width: 600px;">
                         <div class="card-body">
@@ -133,6 +134,7 @@ function carregarDetalhes() {
                         </div>
                     </div>
                 </section>
+                
                 <section class="arrumarDetalhes">
                     <div class="card" style="width: 600px;">
                         <div class="card-body">
