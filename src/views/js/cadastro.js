@@ -1,3 +1,10 @@
+// Impedir uso da tecla enter
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault()
+    }
+})
+
 // Função responsável por postar um feedback
 function publicarFeedback() {
     const id = window.location.search.split('=')
@@ -98,7 +105,7 @@ function cadastrarRestaurante() {
         .then((result) => {
             console.log(result.error)
             if (result.msg === "Cadastrado") {
-                window.location.replace('')
+                window.location.replace('./success.html')
             } else if (result.error.code === 'ER_DUP_ENTRY') {
                 document.querySelector('.alertBanner').innerHTML = `<div class="alert alert-warning" role="alert">
                 CNPJ já cadastrado, revise o dado digitado.</div>`
