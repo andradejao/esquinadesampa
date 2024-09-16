@@ -25,14 +25,14 @@ routerLogin.post("/cadastrar", (req, res) => {
         req.body.senha = crypt
         data.query(`insert into login set ?`, req.body, (error, result) => {
             if (error) {
-                return res.status(500).send({ msg: "Erro ao cadastrar" } + error)
+                return res.status(500).send({ msg: "Erro ao cadastrar" + error })
             }
             res.status(201).send({ msg: "Cadastrado", payload: result })
         })
     })
 })
 
-routerLogin.post("/autenticar",  (req, res) => {
+routerLogin.post("/autenticar", (req, res) => {
     let sh = req.body.senha
     data.query("select * from login where email=?", req.body.email, (error, result) => {
         if (error || result[0] == null) {

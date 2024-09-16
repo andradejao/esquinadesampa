@@ -14,7 +14,7 @@ routerContato.get("/listar", (req, res) => {
 routerContato.post("/cadastrar", (req, res) => {
     data.query(`insert into contato set ?`, req.body, (error, result) => {
         if (error) {
-            return res.status(500).send({ msg: "Erro ao cadastrar" } + error)
+            return res.status(500).send({ msg: "Erro ao cadastrar" + error })
         }
         res.status(201).send({ msg: "Cadastrado", payload: result })
     })

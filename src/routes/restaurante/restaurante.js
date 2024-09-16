@@ -72,7 +72,7 @@ routerRestaurante.post("/cadastrar", (req, res) => {
     values(?, ?, ?, ?)`, [req.body.telefoneresidencial, req.body.emailcontato, req.body.telefonecelular,
     req.body.website], (error, result) => {
         if (error) {
-            return res.status(500).send({ msg: "Erro ao cadastrar" } + error)
+            return res.status(500).send({ msg: "Erro ao cadastrar o contato" + error })
         }
         const idContato = result.insertId
         // Final do cadastro de contato <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -80,18 +80,18 @@ routerRestaurante.post("/cadastrar", (req, res) => {
         // Cadastro dos campos de endereço >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         data.query(`insert into endereco (logradouro, numero, complemento, bairro, cep) 
         values( ?, ?, ?, ?, ?)`, [req.body.logradouro, req.body.numero, req.body.complemento, req.body.bairro,
-        req.body.cep], (erro, result) => {
-            if (erro) {
-                return res.status(500).send({ msg: "Erro ao cadastrar o endereço" } + erro)
+        req.body.cep], (error, result) => {
+            if (error) {
+                return res.status(500).send({ msg: "Erro ao cadastrar o endereço" + error })
             }
             const idEndereco = result.insertId
             // Final do cadastro de endereço <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
             // Cadastro dos campos de foto >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             data.query(`insert into foto (fotocapa, foto1, foto2) values (?, ?, ?)`,
-                [req.body.fotocapa, req.body.foto1, req.body.foto2], (err, result) => {
-                    if (err) {
-                        return res.status(500).send({ msg: "Erro ao cadastrar a foto" } + err)
+                [req.body.fotocapa, req.body.foto1, req.body.foto2], (error, result) => {
+                    if (error) {
+                        return res.status(500).send({ msg: "Erro ao cadastrar a foto" + error })
                     }
                     const idFoto = result.insertId
                     // Final do cadastro de foto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -102,10 +102,9 @@ routerRestaurante.post("/cadastrar", (req, res) => {
                 values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                         [req.body.nomerestaurante, req.body.categoria, req.body.cnpj, req.body.descricao,
                         req.body.faixadepreco, req.body.horariofuncionamento,
-                            idContato, idEndereco, idFoto, req.body.situacao], (er, result) => {
-                                if (er) {
-                                    console.log(er)
-                                    return res.status(500).send({ msg: "Erro", erro:er })
+                            idContato, idEndereco, idFoto, req.body.situacao], (error, result) => {
+                                if (error) {
+                                    return res.status(500).send({ msg: "Erro ao cadastrar o restaurante" + error })
                                 }
                                 res.status(201).send({ msg: "Cadastrado", payload: result })
                             })
