@@ -39,11 +39,6 @@
         flex-direction: column;
       }
       
-      .card img {
-        height: 200px;
-        object-fit: cover;
-      }
-      
       .card-body {
         flex-grow: 1;
         display: flex;
@@ -61,4 +56,12 @@
         margin-bottom: 10px;
       }
 
+      .imgTrabalho {
+        width: 1280px;
+        height: 350px;
+        border-radius: 25px;
+        margin-bottom: 15px;
+        align-items: center;
+        justify-content: center;
+    }
 }
