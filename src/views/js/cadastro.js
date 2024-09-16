@@ -94,16 +94,19 @@ function cadastrarRestaurante() {
             situacao: "ativo"
         })
     })
-        .then((response) => {
-            if (response.status === 201) {
-                return response.json()
-            } else {
-                throw new Error({ msg: "Erro no cadastro" })
-            }
-        })
+        .then((res) => res.json())
         .then((result) => {
-            console.log(result.msg)
-            window.location.replace("./index.html")
+            console.log(result.error)
+            if (result.msg === "Cadastrado") {
+                window.location.replace('')
+            } else if (result.error.code === 'ER_DUP_ENTRY') {
+                document.querySelector('.alertBanner').innerHTML = `<div class="alert alert-warning" role="alert">
+                CNPJ já cadastrado, revise o dado digitado.</div>`
+                document.getElementById('inputCnpj').focus()
+                // window.location.replace("./index.html")
+            } else {
+                alert("erro")
+            }
         })
         .catch((error) => console.error("Erro ao acessar a api" + error))
 

@@ -177,3 +177,16 @@ span {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+
+/* Remover botões de incremento no input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove os botões de incremento no Firefox */
+input[type="number"] {
+    appearance: textfield;
+}
