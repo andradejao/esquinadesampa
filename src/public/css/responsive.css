@@ -64,4 +64,43 @@
         align-items: center;
         justify-content: center;
     }
+
+    .arrumarDetalhes-container {
+      display: flex;
+      justify-content: space-between; /* Espaço entre os cards */
+      gap: 20px; /* Espaço entre os cards */
+      flex-wrap: wrap; /* Caso o espaço não seja suficiente, os cards irão para a linha de baixo */
+  }
+  
+  .arrumarDetalhes .card {
+      flex: 1; /* Os cards se ajustarão ao espaço disponível */
+      min-width: 280px; /* Tamanho mínimo para manter a responsividade */
+      max-width: 600px; /* Tamanho máximo */
+      margin: 10px 0;
+  }
+
+  .arrumarDetalhes .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.arrumarDetalhes .card-body p,
+.arrumarDetalhes .card-body a {
+    margin-bottom: 15px; 
+}
+
+.arrumarDetalhes .card-body a {
+    display: flex;
+    align-items: center; 
+}
+
+.arrumarDetalhes .card-body img {
+    margin-right: 10px; 
+}
+
+.arrumarDetalhes .card-body p:last-child,
+.arrumarDetalhes .card-body a:last-child {
+    margin-bottom: 0;
+}
+
 }

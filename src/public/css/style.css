@@ -190,3 +190,27 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     appearance: textfield;
 }
+
+.arrumarDetalhes .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.arrumarDetalhes .card-body p,
+.arrumarDetalhes .card-body a {
+    margin-bottom: 15px; 
+}
+
+.arrumarDetalhes .card-body a {
+    display: flex;
+    align-items: center; 
+}
+
+.arrumarDetalhes .card-body img {
+    margin-right: 10px; 
+}
+
+.arrumarDetalhes .card-body p:last-child,
+.arrumarDetalhes .card-body a:last-child {
+    margin-bottom: 0;
+}
