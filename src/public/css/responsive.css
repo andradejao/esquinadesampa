@@ -67,15 +67,15 @@
 
     .arrumarDetalhes-container {
       display: flex;
-      justify-content: space-between; /* Espaço entre os cards */
-      gap: 20px; /* Espaço entre os cards */
-      flex-wrap: wrap; /* Caso o espaço não seja suficiente, os cards irão para a linha de baixo */
+      justify-content: space-between; 
+      gap: 20px; 
+      flex-wrap: wrap; 
   }
   
   .arrumarDetalhes .card {
-      flex: 1; /* Os cards se ajustarão ao espaço disponível */
-      min-width: 280px; /* Tamanho mínimo para manter a responsividade */
-      max-width: 600px; /* Tamanho máximo */
+      flex: 1; 
+      min-width: 280px; 
+      max-width: 600px; 
       margin: 10px 0;
   }
 
