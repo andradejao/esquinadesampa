@@ -103,4 +103,8 @@
     margin-bottom: 0;
 }
 
+#tamanhoLetra {
+    font-size: 2em;
+}
+
 }
