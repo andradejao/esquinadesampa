@@ -38,3 +38,42 @@ input.addEventListener('blur', () => {
             console.log(`Erro ao obter o endereço: ${error}`)
         })
 })
+
+// Limitar tamanho do input de CNPJ
+const inputCnpj = document.getElementById('inputCnpj')
+
+inputCnpj.addEventListener('input', () => {
+    let cnpjValue = inputCnpj.value
+
+    if (cnpjValue.length > 14) {
+        inputCnpj.value = cnpjValue.slice(0, 14)
+    }
+})
+
+// Impedir uso de caracteres não numéricos
+const inputTelefone = document.getElementById('inputTelefoneResidencial')
+const inputCelular = document.getElementById('inputTelefoneCelular')
+
+inputTelefone.addEventListener('input', (event) => {
+    event.target.value = event.target.value.replace(/\D/g, '')
+})
+
+inputCelular.addEventListener('input', (event) => {
+    event.target.value = event.target.value.replace(/\D/g, '')
+})
+
+// Formatar input de preço, adicionando vírgula automaticamente
+const inputPreco = document.getElementById('inputPreco')
+
+inputPreco.addEventListener('input', (event) => {
+    let valor = event.target.value.replace(/\D/g, '')
+
+    if (valor.length > 4) {
+        valor = valor.slice(0, 4)
+    }
+    if (valor.length >= 3) {
+        valor = valor.slice(0, -2) + '.' + valor.slice(-2)
+    }
+
+    event.target.value = valor
+})

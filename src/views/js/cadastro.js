@@ -38,11 +38,11 @@ function publicarFeedback() {
 
 // Função responsável pelo cadastro do restaurante
 function cadastrarRestaurante() {
-    const nomeRestaurante = document.getElementById('inputName').value
+    const nomeRestaurante = document.getElementById('inputName').value.trim()
     const cnpjRestaurante = document.getElementById('inputCnpj').value
     const categoriaRestaurante = document.getElementById('selectCategoria').value
     const precoRestaurante = document.getElementById('inputPreco').value.replace(',', '.')
-    const descricaoRestaurante = document.getElementById('inputDescricao').value
+    const descricaoRestaurante = document.getElementById('inputDescricao').value.trim()
     const cepRestaurante = document.getElementById('inputCep').value
     const logradouroRestaurante = document.getElementById('inputLogradouro').value
     const numeroRestaurante = document.getElementById('inputNumero').value
@@ -110,9 +110,9 @@ function cadastrarRestaurante() {
                 document.querySelector('.alertBanner').innerHTML = `<div class="alert alert-warning" role="alert">
                 CNPJ já cadastrado, revise o dado digitado.</div>`
                 document.getElementById('inputCnpj').focus()
-                // window.location.replace("./index.html")
             } else {
-                alert("erro")
+                document.querySelector('.alertBanner').innerHTML = `<div class="alert alert-warning" role="alert">
+                Ocorreu um erro ao processar os dados. Revise os dados e tente novamente.</div>`
             }
         })
         .catch((error) => console.error("Erro ao acessar a api" + error))
