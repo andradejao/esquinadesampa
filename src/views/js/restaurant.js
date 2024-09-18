@@ -54,10 +54,17 @@ function carregarBusca() {
     const searchValue = localStorage.getItem('searchValue')
     const conteudo = document.querySelector('.conteudoDestaque')
     const title = document.querySelector('.alinharTexto')
+    const errorApi = document.querySelector('.errorApi')
 
     fetch('http://10.26.45.33:4000/api/restaurante/buscar/' + searchValue)
         .then((response) => response.json())
         .then((data) => {
+            if (Array.isArray(data.payload) && data.payload.length === 0) {
+                errorApi.innerHTML = `<img src="../public/img/error404.png"  width="350px" height="350px">`
+                title.innerHTML = `<h2>Parece que não temos nenhum restaurante registrado para o bairro 
+                <strong>${searchValue}</strong>. Que tal tentar em um bairro vizinho?</h2>`
+                document.getElementById('inputSearch').focus()
+            }
             data.payload.map((rs) => {
                 let card = `<div class = "alinharDestaque"><div class="card" style="width: 18rem;">
                 <a href="detalhes.html?idrestaurante=${rs.idrestaurante}">
