@@ -25,7 +25,7 @@ routerLogin.post("/cadastrar", (req, res) => {
         req.body.senha = crypt
         data.query(`insert into login set ?`, req.body, (error, result) => {
             if (error) {
-                return res.status(500).send({ msg: "Erro ao cadastrar" + error })
+                return res.status(500).send({ msg: "Erro ao cadastrar", error: error })
             }
             res.status(201).send({ msg: "Cadastrado", payload: result })
         })
