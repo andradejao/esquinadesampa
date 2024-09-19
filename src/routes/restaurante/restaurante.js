@@ -24,9 +24,11 @@ routerRestaurante.get("/listar/:categoria", (req, res) => {
 })
 
 routerRestaurante.get("/listardestaque", (req, res) => {
-    data.query(`select r.idrestaurante, r.nomerestaurante, f.fotocapa from restaurante r 
-    inner join foto f on r.idfoto = f.idfoto 
-    order by r.datacadastro desc limit 4;`, (error, result) => {
+    data.query(`select r.idrestaurante, r.nomerestaurante, f.fotocapa, avg(fb.nota) as media 
+    from restaurante r inner join foto f on r.idfoto = f.idfoto 
+    left join feedback fb on r.idrestaurante = fb.idrestaurante 
+    group by r.idrestaurante, r.nomerestaurante, f.fotocapa having count(fb.nota) >= 3 
+    order by media desc limit 4;`, (error, result) => {
         if (error) {
             return res.status(500).send({ msg: "Erro ao carregar a seleção" + error })
         }
