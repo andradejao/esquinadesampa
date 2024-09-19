@@ -2,6 +2,10 @@
 function autenticar() {
     const emailLogin = document.querySelector('#inputEmail')
     const passwordLogin = document.querySelector('#inputPassword')
+    const banner = document.querySelector('.alertBanner')
+    if (passwordLogin.value.length < 8) {
+        return
+    }
 
     fetch('http://10.26.45.33:4000/api/login/autenticar', {
         method: 'POST',
@@ -16,7 +20,19 @@ function autenticar() {
     })
         .then((response) => response.json())
         .then((result) => {
-            console.log(result)
+            if (result.msg === "Usuário ou senha incorreto") {
+                banner.innerHTML = `<div class="alert-error">
+                <p>Usuário ou senha incorreto</p>
+                </div>`
+                document.getElementById('inputEmail').focus
+                setTimeout(() => {
+                    banner.innerHTML = ""
+                }, 4000)
+            }
+
+            const token = result.token
+            document.cookie = `authToken=${token}; expires=${new Date(Date.now() + 3600 * 1000).toUTCString()}; path=/`
+
         })
         .catch((error) => console.error("Erro ao acessar a api" + error))
 }

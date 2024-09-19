@@ -13,6 +13,7 @@
         <div class="logo">
             <img src="../public/img/logo.png" alt="logo esquina de sampa">
         </div>
+        <div class="alertBanner"></div>
         <h1>Bem-Vindo!</h1>
         <form onsubmit="return false">
             <div class="input-container">
@@ -169,6 +170,26 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: cover;
+        }
+
+        .alert-success {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d4edda;
+            border-radius: 5px;
+            background-color: #d4edda;
+            color: #155724;
+            font-size: 14px;
+        }
+
+        .alert-error {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f8d7da;
+            border-radius: 5px;
+            background-color: #f8d7da;
+            color: #721c24;
+            font-size: 14px;
         }
     </style>
     <script src="./js/login.js"></script>
