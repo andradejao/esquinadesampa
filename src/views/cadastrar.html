@@ -13,16 +13,17 @@
         <div class="logo">
             <img src="../public/img/logo.png" alt="logo esquina de sampa">
         </div>
+        <div class="alertBanner"></div>
         <h1>Criar uma conta</h1>
         <form onsubmit="return false">
             <div class="input-container">
                 <label for="inputEmail">E-mail</label>
-                <input type="email" id="inputEmail" required>
+                <input type="email" id="inputEmail" maxlength="50" required>
             </div>
             <div class="input-container">
                 <label for="inputPassword">Senha</label>
-                <input type="password" id="inputPassword" required>
-                <img src="../public/img/eyeopen.png" class="icon" alt="Ícone de Senha" onclick="ocultarSenha()"></a>
+                <input type="password" id="inputPassword" minlength="8" maxlength="50" required>
+                <img src="../public/img/eyeopen.png" class="icon" onclick="ocultarSenha()" alt="Ícone de Senha"></a>
             </div>
             <button type="submit" onclick="cadastrar()">CADASTRAR</button>
         </form>
@@ -169,6 +170,26 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: cover;
+        }
+
+        .alert-success {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d4edda;
+            border-radius: 5px;
+            background-color: #d4edda;
+            color: #155724;
+            font-size: 14px;
+        }
+
+        .alert-error {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f8d7da;
+            border-radius: 5px;
+            background-color: #f8d7da;
+            color: #721c24;
+            font-size: 14px;
         }
     </style>
     <script src="./js/login.js"></script>
