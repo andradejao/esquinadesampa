@@ -88,6 +88,7 @@ function carregarDetalhes() {
     const idUrl = window.location.search.split("=")[1]
     const conteudo = document.querySelector('.conteudoDestaque')
     const conteudoFeedback = document.querySelector('.cardFeedback')
+    let cardFeedback = ""
 
     fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + idUrl)
         .then((response) => response.json())
@@ -174,7 +175,11 @@ function carregarDetalhes() {
 
                 conteudo.innerHTML = card
 
-                let cardFeedback = `
+                if (rs.opiniao === null) {
+                    cardFeedback = ""
+                }
+                else {
+                    cardFeedback = `
                 <section class="arrumarDetalhes">
                     <div class="card" style="width: 100%; padding: 1em; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                         <div class="card-body">
@@ -186,7 +191,8 @@ function carregarDetalhes() {
                     </div>
                 </section>`
 
-                conteudoFeedback.innerHTML += cardFeedback
+                    conteudoFeedback.innerHTML += cardFeedback
+                }
             })
         })
         .catch((error) => console.log(error))
@@ -200,14 +206,19 @@ function carregarMediaFeedback() {
     fetch('http://10.26.45.33:4000/api/feedback/listarmedia/' + idUrl)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             data.payload.map((rs) => {
                 let media = Number(rs.media)
                 let star = ""
                 let mediaHtml = ""
                 console.log(media.toFixed(1))
 
-                if (media.toFixed(0) == 1) {
+                if (media.toFixed(0) == 0) {
+                    star = ""
+                    mediaHtml = `<br><br>
+                    <h3 id="containerTitle">Seja o primeiro a avaliar o restaurante!</h3>
+                    <br>`
+                }
+                else if (media.toFixed(0) == 1) {
                     star = "⭐☆☆☆☆"
                     mediaHtml = `
                 <br>
