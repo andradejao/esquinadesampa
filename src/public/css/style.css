@@ -198,16 +198,16 @@ input[type="number"] {
 
 .arrumarDetalhes .card-body p,
 .arrumarDetalhes .card-body a {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 .arrumarDetalhes .card-body a {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .arrumarDetalhes .card-body img {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .arrumarDetalhes .card-body p:last-child,
@@ -219,7 +219,7 @@ input[type="number"] {
     font-size: 1.5em;
 }
 
-.errorApi{
+.errorApi {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,4 +231,12 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     font-size: 13pt;
+}
+
+@media (min-width: 576px) {
+    .flexButtonHome {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
 }
