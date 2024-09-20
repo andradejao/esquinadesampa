@@ -69,7 +69,7 @@ routerRestaurante.get("/buscar/:bairro", (req, res) => {
     })
 })
 
-routerRestaurante.post("/cadastrar", (req, res) => {
+routerRestaurante.post("/cadastrar", verificar, (req, res) => {
     // Cadastro dos campos de contato >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     data.query(`insert into contato (telefoneresidencial, emailcontato, telefonecelular, website) 
     values(?, ?, ?, ?)`, [req.body.telefoneresidencial, req.body.emailcontato, req.body.telefonecelular,

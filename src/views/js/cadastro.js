@@ -38,6 +38,7 @@ function publicarFeedback() {
 
 // Função responsável pelo cadastro do restaurante
 function cadastrarRestaurante() {
+    const token = localStorage.getItem('token')
     const nomeRestaurante = document.getElementById('inputName').value.trim()
     const cnpjRestaurante = document.getElementById('inputCnpj').value
     const categoriaRestaurante = document.getElementById('selectCategoria').value
@@ -74,7 +75,8 @@ function cadastrarRestaurante() {
         method: 'POST',
         headers: {
             'accept': 'application/json',
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'token': token
         },
         body: JSON.stringify({
             telefoneresidencial: telefoneRestaurante,

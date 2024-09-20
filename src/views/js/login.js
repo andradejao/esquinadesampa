@@ -29,9 +29,11 @@ function autenticar() {
                     banner.innerHTML = ""
                 }, 4000)
             }
-
-            const token = result.token
-            document.cookie = `authToken=${token}; expires=${new Date(Date.now() + 3600 * 1000).toUTCString()}; path=/`
+            else {
+                const token = result.token
+                localStorage.setItem('token', token)
+                window.open('./trabalheconosco.html')
+            }
 
         })
         .catch((error) => console.error("Erro ao acessar a api" + error))
