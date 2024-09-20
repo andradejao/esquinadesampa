@@ -106,7 +106,10 @@ function cadastrarRestaurante() {
         .then((res) => res.json())
         .then((result) => {
             console.log(result.error)
-            if (result.msg === "Cadastrado") {
+            if (result.msg === "Autorização negada para este conteúdo") {
+                window.location.replace('./login.html')
+            }
+            else if (result.msg === "Cadastrado") {
                 window.location.replace('./success.html')
             } else if (result.error.code === 'ER_DUP_ENTRY') {
                 document.querySelector('.alertBanner').innerHTML = `<div class="alert alert-warning" role="alert">
