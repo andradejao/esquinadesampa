@@ -233,10 +233,23 @@ input[type="number"] {
     font-size: 13pt;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 768px) {
     .flexButtonHome {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #btn1 {
+        margin-right: 40px;
+    }
+
+    #btn3 {
+        margin-right: 40px;
+    }
+
+    #btn5 {
+        margin-right: 40px;
     }
 
 }
