@@ -7,7 +7,7 @@ function autenticar() {
         return
     }
 
-    fetch('http://10.26.45.33:4000/api/login/autenticar', {
+    fetch('http://127.0.0.1:4000/api/login/autenticar', {
         method: 'POST',
         headers: {
             'accept': 'application/json',
@@ -32,7 +32,7 @@ function autenticar() {
             else {
                 const token = result.token
                 localStorage.setItem('token', token)
-                window.open('./trabalheconosco.html')
+                window.location.replace('./trabalheconosco.html')
             }
 
         })
@@ -48,7 +48,7 @@ function cadastrar() {
         return
     }
 
-    fetch('http://10.26.45.33:4000/api/login/cadastrar', {
+    fetch('http://127.0.0.1:4000/api/login/cadastrar', {
         method: 'POST',
         headers: {
             'accept': 'application/json',

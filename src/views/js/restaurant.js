@@ -1,7 +1,7 @@
 function carregarDestaques() {
     const conteudo = document.querySelector('.flexCardDestaque')
 
-    fetch('http://10.26.45.33:4000/api/restaurante/listardestaque')
+    fetch('http://127.0.0.1:4000/api/restaurante/listardestaque')
         .then((response) => response.json())
         .then((data) => {
             data.payload.map((rs) => {
@@ -28,7 +28,7 @@ function carregarRestaurante() {
     const categoriaUrl = categoria[0]
     const conteudo = document.querySelector('.flexCardDestaque')
 
-    fetch('http://10.26.45.33:4000/api/restaurante/listar/' + categoriaUrl)
+    fetch('http://127.0.0.1:4000/api/restaurante/listar/' + categoriaUrl)
         .then((response) => response.json())
         .then((data) => {
             data.payload.map((rs) => {
@@ -56,7 +56,7 @@ function carregarBusca() {
     const title = document.querySelector('.alinharTexto')
     const errorApi = document.querySelector('.errorApi')
 
-    fetch('http://10.26.45.33:4000/api/restaurante/buscar/' + searchValue)
+    fetch('http://127.0.0.1:4000/api/restaurante/buscar/' + searchValue)
         .then((response) => response.json())
         .then((data) => {
             if (Array.isArray(data.payload) && data.payload.length === 0) {
@@ -90,7 +90,7 @@ function carregarDetalhes() {
     const conteudoFeedback = document.querySelector('.cardFeedback')
     let cardFeedback = ""
 
-    fetch('http://10.26.45.33:4000/api/restaurante/detalhes/' + idUrl)
+    fetch('http://127.0.0.1:4000/api/restaurante/detalhes/' + idUrl)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -203,7 +203,7 @@ function carregarMediaFeedback() {
     const idUrl = window.location.search.split("=")[1]
     const extraDataDiv = document.querySelector('.extraData')
 
-    fetch('http://10.26.45.33:4000/api/feedback/listarmedia/' + idUrl)
+    fetch('http://127.0.0.1:4000/api/feedback/listarmedia/' + idUrl)
         .then((response) => response.json())
         .then((data) => {
             data.payload.map((rs) => {

@@ -14,7 +14,7 @@ function publicarFeedback() {
     if (opiniaoFeedback.value == "") {
         return
     } else {
-        fetch('http://10.26.45.33:4000/api/feedback/cadastrar', {
+        fetch('http://127.0.0.1:4000/api/feedback/cadastrar', {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
@@ -71,7 +71,7 @@ function cadastrarRestaurante() {
 
     let funcionamento = `${diasFuncionamento}: ${horarioFuncionamento}`
 
-    fetch('http://10.26.45.33:4000/api/restaurante/cadastrar', {
+    fetch('http://127.0.0.1:4000/api/restaurante/cadastrar', {
         method: 'POST',
         headers: {
             'accept': 'application/json',
