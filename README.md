@@ -83,9 +83,9 @@ Inicie o servidor
 
 Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
-`HOST_NAME`= Endereço IP do seu servidor
+`HOST_NAME`= 127.0.0.1
 
-`HOST_DATABASE`= Endereço IP do banco de dados
+`HOST_DATABASE`= 127.0.0.1
 
 `USER_NAME`= Nome de usuário do banco de dados
 
@@ -93,20 +93,21 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 `DATABASE_PORT`= Porta do banco de dados
 
-`HOST_PORT`= Porta que rodará a api
+`HOST_PORT`= 4000
 
-`SALT`= Quantidade de hash para o Bcrypt
+`SALT`= 10
 
 `JWT_KEY`= Chave para o JWT
 
-`DATABASE_NAME`= "dbesquinadesampa"
-
-
-
+`DATABASE_NAME`= dbesquinadesampa
 
 ## Autores
-
-- [@andradejao](https://github.com/andradejao)
-- [@camilajodai](https://github.com/camilajodai)
-- [@pedrohs01](https://github.com/pedrohs01)
+<a href="https://github.com/andradejao">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/github/github-original.svg" alt="Um exemplo de imagem" width="50" height="50"/>@andradejao</a>
+ㅤ
+<a href="https://github.com/camilajodai">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/github/github-original.svg" alt="Um exemplo de imagem" width="50" height="50"/>@camilajodai</a>
+ㅤ
+<a href="https://github.com/pedrohs01">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/github/github-original.svg" alt="Um exemplo de imagem" width="50" height="50"/>@pedrohs01</a>
 
