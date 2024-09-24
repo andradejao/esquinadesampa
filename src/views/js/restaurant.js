@@ -108,13 +108,13 @@ function carregarDetalhes() {
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="${rs.fotocapa}" class="d-block w-100" alt="..." id="imgCarrossel">
+                                <img src="${rs.fotocapa}" class="d-block w-100" alt="Carrossel 1" id="imgCarrossel">
                             </div>
                             <div class="carousel-item">
-                                <img src="${rs.foto1}" class="d-block w-100" alt="..." id="imgCarrossel">
+                                <img src="${rs.foto1}" class="d-block w-100" alt="Carrossel 2" id="imgCarrossel">
                             </div>
                             <div class="carousel-item">
-                                <img src="${rs.foto2}" class="d-block w-100" alt="..." id="imgCarrossel">
+                                <img src="${rs.foto2}" class="d-block w-100" alt="Carrosel 3" id="imgCarrossel">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
